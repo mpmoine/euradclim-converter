@@ -7,8 +7,7 @@
 #SBATCH --output=logs/euradclim2netcdf_%A_%a.out
 #SBATCH --error=logs/euradclim2netcdf_%A_%a.err
 
-YEAR=2021
-#MONTH=$(( $SLURM_ARRAY_TASK_ID + 1 ))
+YEAR=2022
 MONTH=$SLURM_ARRAY_TASK_ID
 
 source /data/home/globc/moine/virtual_envs/hdf5_venv/bin/activate

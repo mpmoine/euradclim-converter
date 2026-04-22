@@ -2,7 +2,7 @@
 
 ## Description
 
-Script de conversion des fichiers HDF5 de précipitations horaires (`HOURLY_RAINFALL_ACCUMULATION`) du projet EURADCLIM en fichiers NetCDF avec des métadonnées CF-compliantes et coordonnées lat/lon.
+Script de conversion des fichiers HDF5 de précipitations horaires (`HOURLY_RAINFALL_ACCUMULATION`) issues de la base de données EURADCLIM en fichiers NetCDF avec des métadonnées CF-compliantes et coordonnées lat/lon.
 
 **Entrée :** un répertoire contenant les fichiers HDF5 d'une série temporelle (ex: un mois)
 
@@ -10,8 +10,20 @@ Script de conversion des fichiers HDF5 de précipitations horaires (`HOURLY_RAIN
 
 **Fichiers annexes fournis avec le script :** 
 
-- `requirements.txt` : liste des dépendances Python nécessaires à l'exécution du script
-- `CoordinatesHDF5ODIMWGS84.dat` : fichier de coordonnées lat/lon exactes fournies avec EURADCLIM (format texte, 2 colonnes : lon lat)
+- `requirements.txt` : liste des dépendances Python nécessaires à l'installation et exécution du script
+- `CoordinatesHDF5ODIMWGS84.dat` : fichier de coordonnées lat/lon exactes fournies avec le jeu de données EURADCLIM (format texte, 2 colonnes : lon lat)
+
+**Références :**
+
+* Accès aux données : https://dataplatform.knmi.nl/dataset/access/rad-opera-hourly-rainfall-accumulation-euradclim-3-0 
+
+* Article de référence : https://essd.copernicus.org/articles/15/1441/2023/
+
+* Code source outils de visu fournis par les producteurs : 
+
+    * v1.0 : https://zenodo.org/records/7473816
+
+    * v1.0 et v1.1 : https://github.com/overeem11/EURADCLIM-tools#
 
 **Auteur :** M-P. Moine (CECI/Cerfacs)
 
@@ -67,7 +79,7 @@ source /data/home/globc/moine/virtual_envs/hdf5_venv/bin/activate
 python euradclim_hdf5_to_netcdf.py --year $YEAR --month $MONTH --input_rootdir "/data/scratch/globc/moine/obs_data/EURADCLIM/EURADCLIM_data/RAD_OPERA_HOURLY_RAINFALL_ACCUMULATION_EURADCLIM" 
 ```
 
-Changer le nom de la partition selon la machine puis soumettre le job : 
+Changer le nom de la partition selon la machine, l'année à traiter puis soumettre le job : 
 
 ```bash
 sbatch euradclim2netcdf.job

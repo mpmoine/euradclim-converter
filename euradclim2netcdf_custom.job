@@ -1,0 +1,30 @@
+#!/bin/bash
+#SBATCH --job-name=euradclim2netcdf
+#SBATCH --array=0-4
+#SBATCH --cpus-per-task=1
+#SBATCH --time=00:30:00
+#SBATCH --partition bigmem
+#SBATCH --output=logs/euradclim2netcdf_%A_%a.out
+#SBATCH --error=logs/euradclim2netcdf_%A_%a.err
+
+source /data/home/globc/moine/virtual_envs/hdf5_venv/bin/activate
+
+YEAR=2013
+MONTH=5
+python euradclim_hdf5_to_netcdf.py --year $YEAR --month $MONTH --input_rootdir "/data/scratch/globc/moine/obs_data/EURADCLIM/EURADCLIM_data/RAD_OPERA_HOURLY_RAINFALL_ACCUMULATION_EURADCLIM" 
+
+YEAR=2013
+MONTH=8
+python euradclim_hdf5_to_netcdf.py --year $YEAR --month $MONTH --input_rootdir "/data/scratch/globc/moine/obs_data/EURADCLIM/EURADCLIM_data/RAD_OPERA_HOURLY_RAINFALL_ACCUMULATION_EURADCLIM" 
+
+YEAR=2014
+MONTH=11
+python euradclim_hdf5_to_netcdf.py --year $YEAR --month $MONTH --input_rootdir "/data/scratch/globc/moine/obs_data/EURADCLIM/EURADCLIM_data/RAD_OPERA_HOURLY_RAINFALL_ACCUMULATION_EURADCLIM" 
+
+YEAR=2019
+MONTH=8
+python euradclim_hdf5_to_netcdf.py --year $YEAR --month $MONTH --input_rootdir "/data/scratch/globc/moine/obs_data/EURADCLIM/EURADCLIM_data/RAD_OPERA_HOURLY_RAINFALL_ACCUMULATION_EURADCLIM" 
+
+YEAR=2022
+MONTH=12
+python euradclim_hdf5_to_netcdf.py --year $YEAR --month $MONTH --input_rootdir "/data/scratch/globc/moine/obs_data/EURADCLIM/EURADCLIM_data/RAD_OPERA_HOURLY_RAINFALL_ACCUMULATION_EURADCLIM" 
