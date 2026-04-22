@@ -4,8 +4,8 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --time=00:30:00
 #SBATCH --partition bigmem
-#SBATCH --output=logs/euradclim2netcdf_%A_%a.out
-#SBATCH --error=logs/euradclim2netcdf_%A_%a.err
+#SBATCH --output=logs/%x_%A_%a.out
+#SBATCH --error=logs/%x_%A_%a.err
 
 YEAR=2022
 MONTH=$SLURM_ARRAY_TASK_ID
