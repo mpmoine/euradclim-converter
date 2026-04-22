@@ -1,30 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-"""Script de conversion des fichiers HDF5 de précipitations horaires du projet EURADCLIM en fichiers NetCDF avec des métadonnées CF-compliantes et coordonnées lat/lon.
-Entrée : un répertoire contenant les fichiers HDF5 d'une série temporelle (ex: un mois)
-Sortie : un fichier NetCDF contenant la série temporelle complète pour le mois, avec des métadonnées CF-compliantes et des coordonnées lat/lon (optionnel)
-Fichiers annexes fournis avec le script : 
-- requirements.txt : liste des dépendances Python nécessaires à l'exécution du script
-- CoordinatesHDF5ODIMWGS84.dat : fichier de coordonnées lat/lon exactes fournies avec EURADCLIM (format texte, 2 colonnes : lon lat)
-Auteur : M-P. Moine (CECI/Cerfacs)
-Date : 20-04-2026
--------------
-Installation:
--------------
-- creation d'un environnement virtuel (venv) :
-python3.12 -m venv ~/virtual_envs/hdf5_venv
-- activation du venv : 
-source ~/virtual_envs/hdf5_venv/bin/activate
-- installation des dépendances
-pip install -r requirements.txt
------------------------
-Exemple d'utilisation :
------------------------
-source ~/virtual_envs/hdf5_venv/bin/activate
-python euradclim_hdf5_to_netcdf.py --year 2020 --month 10 --input_rootdir /path/to/hdf5/files --output_dir /path/to/output/netcdf/file  --latlon_coords --latlon_exact --variable HOURLY_RAINFALL_ACCUMULATION --netcdf_filename rainfall_EURADCLIM_202010.nc
-"""
-
 from pathlib import Path
 import numpy as np
 import h5py
